@@ -690,6 +690,29 @@ imzala()
 
 
 ; msgbox hi!
+switch()
+{
+	WinGet, ActiveProcess, ProcessName, A
+WinGet, OpenWindowsAmount, Count, ahk_exe %ActiveProcess%
+
+If OpenWindowsAmount = 1  ; If only one Window exist, do nothing
+    Return
+
+Else
+	{
+		WinGetTitle, FullTitle, A
+		AppTitle := ExtractAppTitle(FullTitle)
+
+		SetTitleMatchMode, 2
+		WinGet, WindowsWithSameTitleList, List, %AppTitle%
+
+		If WindowsWithSameTitleList > 1 ; If several Window of same type (title checking) exist
+		{
+			WinActivate, % "ahk_id " WindowsWithSameTitleList%WindowsWithSameTitleList%	; Activate next Window
+		}
+	}
+Return
+}
 
 
 
