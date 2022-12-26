@@ -1,8 +1,4 @@
-﻿#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-
-
+﻿
 
 
 ::t*::TAM BAĞIMLI
@@ -22,6 +18,7 @@ SetWorkingDir, %A_ScriptDir%
 ::n*::NAKİL
 ::H*::TAHLİL
 ::p*::PANSUMAN
+::ş*::ŞEHRİBAN ABA
 
 ;;TANI
 ::yş*::YAŞLILIK
@@ -29,5 +26,4 @@ SetWorkingDir, %A_ScriptDir%
 
 
 
-::eb*::evde bakım hastası, evde görüldü haraket kısıtlığı mevcut  raporlu ilaçları için yetkili branş uzmanı ihtiyacı tdro.
-
+::eb*::EVDE BAKIM HASTASI, TARAFIMIZCA EVDE GÖRÜLDÜ HARAKET KISITLIĞI MEVCUT  TEDAVİSİ, İLAÇLARI İÇİN YETKİLİ BRANŞ UZMANI İHTİYACI TARAFINIZCA DEĞERLENDİRİLMESİ RİCA OLUNUR.

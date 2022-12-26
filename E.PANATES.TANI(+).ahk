@@ -10,20 +10,20 @@ Click 66, 106
 }
 gunesFocus()
 {
-	Send #3
+	Send #5
 	Sleep 299
 	Send #4
 	Sleep 299
 }
 
-tanı()
+tanı(x)
 {
 	;ControlFocus TcxCustomInnerTextEdit12
 	;;ControlClick TcxCustomInnerTextEdit12
 	;Click 1630, 177
-
 	Click 1567, 207
-	return
+	Send %x%
+	Send {enter}
 }
 
 fm()
@@ -86,7 +86,7 @@ reçetemilaç()
 
 reçetemilaçf()
 {
-	Send gi
+	Send gı
 	Sleep 299
 	Send {Tab}
 	return
@@ -95,23 +95,16 @@ reçetemilaçf()
 
 
 ^+q:: ; vitamin eksikiği
-tanı()
-Send, E56.9
-Send,{enter}
-Send, E60
-Send,{enter}
+tanı("E56.9")
+tanı("E60")
 return
 
 ^+W:: ; TİNEA PEDİS
-tanı()
-Send, B35.3
-Send,{enter}
+tanı("B35.3")
 return
 
 ^+e:: ;konjontivit
-tanı()
-Send, H10.2
-Send,{enter}
+tanı("H10.2")
 return
 
 ;; ^+r:: ; öksürük Send, R05 return
@@ -119,62 +112,42 @@ return
 
 
 ^+t:: ; hipotiroidi
-tanı()
-Send, E03
-Send,{enter}
+tanı("E03")
 return
 
 ^+y:: ;yumuşak doku bozukluğu
-tanı()tanı()
-Send, M73
-Send,{enter}
-Send, L30
-Send,{enter}
+tanı("M73")
+tanı("L30")
 return
 
 ^+U:: ;ÜRİNERSİSTEM ENF
-tanı()
-Send, N39.0
-Send,{enter}
-Send, N30.0
-Send,{enter}
+tanı("N39.0")
+tanı("N30.0")
 return
 
 
 ^+ı:: ; gastoenterit
-tanı()
-Send, k52
-Send,{enter}
+tanı("k52")
 return
 
 ^+o:: ; otit
-tanı()
-Send, H66.9
-Send,{enter}
+tanı("H66.9")
 return
 
 ^+p:: ; hasta alt bezi
-tanı()
-Send, n31.8
-Send,{enter}
-Send, r32
-Send,{enter}
+tanı("n31.8")
+tanı("r32")
 return
 
 ;;^+ğ:: ;
 ;;return
 
 ^+ü:: ;üsye
-tanı()
-Sleep 200
-Send, J39.9
-Send,{enter}
+tanı("J39.9")
 return
 
 ^+A:: ;AKUT GASTRİT
-tanı()
-Send, K29.1
-Send,{enter}
+tanı("K29.1")
 return
 
 
@@ -213,53 +186,38 @@ Send !{F4}
 return
 
 ^+F:: ;FE EKSİKLİĞİ
-tanı()
-Send, D50.9
-Send,{enter}
+tanı("D50.9")
 return
 
 ^+g:: ;genel
-tanı()
-Send, Z00.0
-Send,{enter}
+tanı("Z00.0")
 return
 
 
 
 ^+H:: ;Hipertansiyon
-tanı()
-Send, I10
-Send,{enter}
+tanı("I10")
 return
 
 ^+j:: ;allerji
-tanı()
-Send, T78.4
-Send,{enter}
+tanı("T78.4")
 return
 
 
 ^+K:: ;KABIZLIK
-tanı()
-Send, K59.0
-Send,{enter}
+tanı("K59.0")
 return
 
 ^+l:: ;hiperlipidemi
-tanı()
-Send, E78.5
-Send,{enter}
+tanı("E78.5")
 return
 
 ^+ş:: ;astım
-tanı()
-Send, J45.9
-Send,{enter}
+tanı("J45.9")
 return
 
 ^+i:: ; folat
-tanı()
-Send, D52.9
+tanı("D52.9")
 return
 
 
@@ -282,37 +240,30 @@ Suspend
 return
 
 ^+c:: ; bulantı kusma
-tanı()
-Send, R11
+tanı("R11")
 return
 
 
 
 ^+v:: ; vertigo
-tanı()
-Send, R42
-Send,{enter}
+tanı("R42")
 return
 
 
 
 ^+b:: ; B12
-tanı()
-Send, d51.9
-Send,{enter}
+tanı("d51.9")
 return
 
 
 ^+n:: ;
-tanı()
+tanı("")
 return
 
 
 
 ^+M:: ;MİYALJİ
-tanı()
-Send, M79.1
-Send,{enter}
+tanı("M79.1")
 return
 
 
@@ -320,13 +271,18 @@ return
 
 
 ^+ö:: ;
-tanı()
+tanı("")
 return
 
 ^+ç:: ; kalsiyum
-tanı()
-Send, E58
+tanı("E58")
 return
+
+::.av:: ;Akut vajinit
+tanı("N76.0")
+Return
+
+
 
 ^+.:: ;fm
 fm()

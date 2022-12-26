@@ -250,13 +250,13 @@ address(x)
 	Send, evde
 	Sleep 500
 	Send, {Up 50}
-	Sleep 1500
+	Sleep 1000
 	Send, {down %x%}
 	Sleep 500
 	Send, {Enter}
 	Sleep 1000
 	Send, {Enter}
-	Sleep 3000
+	Sleep 2000
 }
 
 
@@ -310,6 +310,7 @@ return
 
 +t:: ; 65 yaş üstü
 tedaviyetıkla()
+dekubityaradebridmanı()
 dekubityarapansumanı()
 yarapansumanı()
 yaradebridmanı()
@@ -326,8 +327,6 @@ return
 tedaviyetıkla()
 dekubityaradebridmanı()
 dekubityarapansumanı()
-yaradebridmanı()
-yarapansumanı()
 return
 
 
@@ -352,14 +351,8 @@ return
 
 
 +ı:: ;iç hastalkları
-tedaviyetıkla()
-;; muayene
-Send,520.030
-Sleep 199
-Send,{enter}
-Sleep 199
-Send,{enter}
-;;çık()
+
+yarapansumanı()
 return
 
 +o:: ; ; 65 yaş üstü

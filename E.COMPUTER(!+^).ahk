@@ -84,6 +84,52 @@ OpenOrShowAppBasedOnWindowTitle(WindowTitleWord, AppAddress)
     }
 }
 
+OpenOrShowAppBasedOnWindowTitleEvdeSağlık(WindowTitleWord, AppAddress)
+{
+
+	SetTitleMatchMode, 2
+
+
+    IfWinExist, %WindowTitleWord%
+    {
+
+		IfWinActive
+		{
+			WinMinimize
+			Return
+		}
+		else
+		{
+			WinActivate
+			Return
+		}
+
+	}
+    else
+    {
+        Run, %AppAddress%, UseErrorLevel
+		Sleep, 3999
+		Send, !+^.
+		Sleep, 999
+		Send, evde sa
+		sleep 999
+		Send, {Enter}
+		Sleep, 6999
+		ControlFocus, TcxGridSite3
+
+        If ErrorLevel
+        {
+            Msgbox, File %AppAddress% Not Found
+            Return
+        }
+		else
+		{
+			WinActivate
+			Return
+		}
+    }
+}
+
 
 
 ; AppTitle: Usually the word at the end of the app window title(Eg: in: "New Document - Word" will be "Word")
@@ -245,8 +291,8 @@ hastaaltbezi()
 	Sleep 1500
 	;Click, 487 583
 	Click, 487 609
-	;Send, İDRAR GAİTA KONTROLÜ YOK, MESANE REKTUM KONTROLÜ YOK
-	Send, İDRAR  KONTROLÜ YOK, MESANE  KONTROLÜ YOK
+	Send, İDRAR GAİTA KONTROLÜ YOK, MESANE REKTUM KONTROLÜ YOK
+	;Send, İDRAR  KONTROLÜ YOK, MESANE  KONTROLÜ YOK
 	;Click, 290 362
 	Click, 290 388
 	Sleep 1500
@@ -385,6 +431,8 @@ günlükverimailigönder()
 	Send, +^!t
 	Sleep, 299
 	Send, {Enter}
+	Sleep, 399
+	Send, +{Tab 2}
 }
 
 
@@ -394,6 +442,9 @@ ebyshesabagiriş()
 	Sleep 3000
 	Click 716 440
 	Sleep 5000
+	Click 847, 663
+	;Click 648, 477
+	Sleep, 1999
 	Click 307 303
 	Sleep 5000
 	Click 812 782
@@ -408,10 +459,14 @@ ebyshesabagiriş()
 	Send {Left}
 	Sleep 99
 	Send {Enter}
-	Sleep 199
+	Sleep 399
 	Click 1212 471
-	Sleep 199
+	Sleep 399
 	Click 872 723
+	Sleep 2999
+	Click 948, 857
+	Sleep 2999
+	Click 1554, 850
 }
 
 ailehek()
@@ -484,9 +539,154 @@ panates()
 
 
 
+esysdenyenihastakayıt()
+{
+	;;isim
+	Click 550 330 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Space}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
 
+	;;soyisim
+	Click 550 370 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	;Send, !{Tab}
+	Sleep, 499
+	Send, {Right 4}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
 
+	;;adres
+	Click 550 440 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Right 3}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	;;tel
+	Click 550 400 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Right 3}
+	Sleep, 499
+	Send, GTM
+	Sleep, 999
+	Send, {Right 4}
+	Sleep, 499
+	Send, YARI BAĞIMLI
+	Sleep, 999
+	Send, {Right 4}
+	Sleep, 999
+	Send, !{Tab}
+	Sleep, 499
+	;;tanı
+	Click 550 620 5
+	Sleep, 299
+	Sleep, 999
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Right 3}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
 
+	;;yaş
+	Click 550 290 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Right 2}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+
+	;;tc
+	Click 550 290 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+	Sleep, 499
+	Send, {Right 2}
+	Sleep, 499
+	Send, !{Tab}
+	Sleep, 499
+
+	;;adress
+	Click 550 440 5
+	Sleep, 299
+	Send, ^c 
+	Sleep, 499
+	;Send, {Left 13}
+	;Sleep, 999
+	Send, !{Tab}
+	Sleep, 499
+	Send, ^v
+	Sleep, 499
+	Send, {BackSpace 2}
+
+}
+
+imzala()
+{
+	Click 1500, 813
+	Sleep 3999
+	Click 1228, 444
+	Sleep 3999
+	Click 1388, 387 3
+	Sleep 999
+	Send,  ^c
+}
 
 
 ; msgbox hi!
@@ -498,7 +698,8 @@ panates()
 
 
 #IfWinActive
-+^!q::OpenOrShowAppBasedOnWindowTitle("Poliklinik","C:\panates\Poliklinik.exe")
+;+^!q::OpenOrShowAppBasedOnWindowTitle("Poliklinik","C:\panates\Poliklinik.exe")
++^!q::OpenOrShowAppBasedOnWindowTitleEvdeSağlık("Poliklinik","C:\panates\Poliklinik.exe")
 
 
 #IfWinActive
@@ -533,7 +734,9 @@ return
 ;; skip o open file pot
 ;;  skip p open file gom
 
-+^!u::OpenOrShowAppBasedOnAppModelUserID("PyCharm","C:\Program Files\JetBrains\PyCharm 2022.2\bin\pycharm64.exe")
++^!u::  ;OpenOrShowAppBasedOnAppModelUserID("PyCharm","C:\Program Files\JetBrains\PyCharm 2022.2\bin\pycharm64.exe");
+ControlFocus, TcxGridSite3, ahk_exe Poliklinik.exe
+Return
 
 
 +^!o::OpenOrShowAppBasedOnWindowTitle("WebStorm","C:\Program Files\JetBrains\WebStorm 2022.2\bin\webstorm64.exe")
@@ -580,9 +783,10 @@ Return
 
 
 +^!j:: ;;
+esysdenyenihastakayıt()
 Return
 
-^!+k::OpenOrShowAppBasedOnWindowTitle("Hasta Kayıt","C:\Users\EVDESAĞLIK\Desktop\panates\HastaKayit.exe")
+^!+k::OpenOrShowAppBasedOnWindowTitle("Hasta Kayıt","C:\Users\EVDESAĞLIK\panates\HastaKayit.exe")
 
 
 
@@ -616,11 +820,22 @@ return
 
 
 ^!+n:: ;
+Run "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 10" https://recetem.enabiz.gov.tr/RBS/Prescription/Create
+Sleep 2999
+Click 99, 333
+Sleep 1999
+Click 1561, 233
 return
 
 
-
-^!+M:: ; 
+^!+M:: ; imzala
+Click 1500, 813
+Sleep 3999
+Click 1228, 444
+Sleep 3999
+Click 1388, 387 3
+Sleep 999
+Send,  ^c
 return
 
 
@@ -695,12 +910,17 @@ return
 
 
 ^!+-:: ;
+Send, Sol18493..
+Sleep, 99
+Send {Enter}
 return
 
 
 
-^!+`:: ;
-return
+^!+`::
+
+Return
+
 
 
 
@@ -728,12 +948,60 @@ hastaaltbezi()
 Return
 
 
-^!+7:: ;;;
+^!+7:: ;;;;;  dış kuruma nakil
+Send,{Tab}
+Send, M
+Send,{down 2}
+Send,{Enter}
+Send,{Tab}
+Send, ...
+Sleep 500
+Send,{Tab 2}
+Send, N
+Sleep 500
+Send,{Enter}
+Send,{Tab 2}
+Send, Ö
+Sleep 500
+Send,{Enter}
+Send,{Tab 2}
+Send, m
+Sleep 500
+Send,{Enter}
+Send,{Tab}
+Send,UZMAN
+Sleep 500
+Send,{Enter}
+Send,{Tab}
+Send,y
+Sleep 500
+Send,{Enter}
+Send,{Tab}
+Send,MARDİN
+Sleep 500
+Send,{Enter}
+Send,{Tab 2}
+Send,N
+Sleep 500
+Send, {Down 4}
+Send,{Enter}
+Send,{Tab 7}
+Send,T
+Sleep 500
+Send,{Enter}
 return
 
 
 ^!+8:: ;;;
-
+Send, !+^z
+Sleep, 499
+Run, C:\Users\EVDESAĞLIK\Desktop\ESHS\ESHS 2022.xlsx
+Sleep, 3999
+FormatTime, CurrentDateTime,, dd.MM.yyyy
+Sleep 299
+Run, C:\Users\EVDESAĞLIK\Desktop\ARALIK AYI VERİLERİ 2022\%CurrentDateTime%.docx
+Sleep, 3999
+Click 445, 740
 return
 
 ^!+9:: ;;;

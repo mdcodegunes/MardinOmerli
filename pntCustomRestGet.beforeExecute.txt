@@ -1,0 +1,1 @@
+https://ussservis.saglik.gov.tr/api/OzellikliIzlem/GetHastaTemasDurumu?TcKimlikNo=28520360398&HekimKimlikNo=28349366090
