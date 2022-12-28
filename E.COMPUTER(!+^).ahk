@@ -433,6 +433,8 @@ günlükverimailigönder()
 	Send, {Enter}
 	Sleep, 399
 	Send, +{Tab 2}
+	Sleep, 399
+	Send, +{Tab}
 }
 
 
@@ -762,8 +764,9 @@ ControlFocus, TcxGridSite3, ahk_exe Poliklinik.exe
 Return
 
 
-+^!o::OpenOrShowAppBasedOnWindowTitle("WebStorm","C:\Program Files\JetBrains\WebStorm 2022.2\bin\webstorm64.exe")
-
++^!o:: ;OpenOrShowAppBasedOnWindowTitle("WebStorm","C:\Program Files\JetBrains\WebStorm 2022.2\bin\webstorm64.exe")
+switch()
+Return
 
 +^!p::OpenOrShowAppBasedOnWindowTitle("PotPlayer","C:\PotPlayer\PotPlayerMini64.exe")
 
@@ -788,7 +791,8 @@ return
 +^!f::OpenOrShowAppBasedOnAppModelUserIDClass("CabinetWClass","Microsoft.Windows.Explorer")
 
 
-+^!g::OpenOrShowAppBasedOnWindowTitle("GOM Player","C:\Program Files\GOM\GOMPlayerPlus\GOM64.EXE")
++^!g::OpenOrShowAppBasedOnAppModelUserID("Telefon Bağlantısı","Microsoft.YourPhone_8wekyb3d8bbwe!App")
+
 
 
 

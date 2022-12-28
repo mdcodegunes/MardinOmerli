@@ -545,6 +545,12 @@ address(9)
 ;;çık()
 return
 
+::.sk::
+tedaviyetıkla()
+address(13)
+;;çık()
+return
+
 
 
 
