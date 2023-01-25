@@ -389,16 +389,140 @@ hastaaltbezi()
 	Sleep 1500
 }
 
+
+hastaaltbeziidrar()
+{
+	;; yıl
+	Click, 304 270
+	;Click 272 296
+	Send, 2
+	Sleep 1500
+	Click, 392 273
+	;Click, 392 296
+	Sleep 1500
+	Send, y
+	Sleep 1500
+	Click, 57 444
+	;Click, 57 470
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+ 	Click, 65 530
+	;Click, 65 556
+	Sleep 1500
+	Click, 487 583
+	;Click, 487 609
+
+	;Send, İDRAR GAİTA KONTROLÜ YOK, MESANE REKTUM KONTROLÜ YOK
+	Send, İDRAR  KONTROLÜ YOK, MESANE  KONTROLÜ YOK
+	Click, 290 362
+	;Click, 290 388
+	Sleep 1500
+	Click, 387 386
+	;Click, 387 412
+	Sleep 1500
+	Click, 604 364
+	;Click, 604 390
+	Sleep 1500
+	Click, 55 391
+	;Click, 55 417
+	Sleep 1500
+	Send, A10049
+	Send,{down}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 698 454
+	;Click, 698 480
+	Sleep 1500
+	Send, F
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 868 455
+	;Click, 868 481
+	Sleep 1500
+	Send, K
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 1070 457
+	;Click, 1070 483
+	Sleep 1500
+	Send, 1
+	Sleep 1500
+	Click, 1221 458
+	;Click, 1221 484
+	Sleep 1500
+	Send, G
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 1312 452
+	;Click, 1312 478
+	Sleep 1500
+	Send, 4
+	Sleep 1500
+	Click, 54 730
+	;Click, 54 756
+	Sleep 1500
+	Send,{down}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	;Click, 54 730
+	;Click, 54 756
+	;Sleep 1500
+	;Send,{down 2}
+	Sleep 1500
+	;Send,{Enter}
+	Sleep 1500
+	Send, {F9}
+	Sleep 500
+	Send, {F9}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 1028 84
+	Sleep 1500
+	Click, 1028 106
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+	Click, 1296 82
+	Sleep 1500
+	Click, 1296 217
+	Sleep 1500
+	Click, 1146 217
+	Sleep 1500
+	Send, {Tab}
+	Sleep 1500
+	Send, s2472O81
+	Sleep 1500
+	Send,{Enter}
+	Sleep 1500
+}
+
 DoktorPerformans()
 {
 	Run "C:\panates\DoktorPerformans.exe"
 	Sleep 2000
 	Send, ÖKOCABAŞ
 	Send, {Tab}
-	Send, Sol18493..
+	Send, Sol18493.
 	Send, {Enter}
 	Sleep 10000
-	Click 119, 785, 4
+	
+	;Click 111, 674, 4
+	Click 152, 692 , 4
 	Sleep 2000
 	Click 140, 112
 	Sleep 2000
@@ -412,11 +536,11 @@ DoktorPerformans()
 günlükverimailigönder()
 {
 	Run, "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 9" https://eposta.saglik.gov.tr/owakontrol/
-	Sleep 5000
+	Sleep 8000
 	Click 223 606
-	Sleep 5000
+	Sleep 8000
 	Click 276 179
-	Sleep 5000
+	Sleep 8000
 	Send mardin
 	Sleep 2000
 	Send {enter}
@@ -441,7 +565,7 @@ günlükverimailigönder()
 ebyshesabagiriş()
 {
 	Run "C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 9" https://evdesaglik.saglik.gov.tr/Account/Login
-	Sleep 3000
+	Sleep 5000
 	Click 716 440
 	Sleep 5000
 	Click 847, 663
@@ -461,7 +585,7 @@ ebyshesabagiriş()
 	Send {Left}
 	Sleep 99
 	Send {Enter}
-	Sleep 399
+	Sleep 999
 	Click 1212 471
 	Sleep 399
 	Click 872 723
@@ -535,7 +659,7 @@ panates()
 {
 	Send, ÖKOCABAŞ
 	Send, {Tab}
-	Send, Sol18493..
+	Send, Sol18493.
 	Send, {Enter}
 }
 
@@ -695,12 +819,12 @@ imzala()
 switch()
 {
 	WinGet, ActiveProcess, ProcessName, A
-WinGet, OpenWindowsAmount, Count, ahk_exe %ActiveProcess%
+	WinGet, OpenWindowsAmount, Count, ahk_exe %ActiveProcess%
 
-If OpenWindowsAmount = 1  ; If only one Window exist, do nothing
-    Return
+	If OpenWindowsAmount = 1  ; If only one Window exist, do nothing
+		Return
 
-Else
+	Else
 	{
 		WinGetTitle, FullTitle, A
 		AppTitle := ExtractAppTitle(FullTitle)
@@ -713,7 +837,7 @@ Else
 			WinActivate, % "ahk_id " WindowsWithSameTitleList%WindowsWithSameTitleList%	; Activate next Window
 		}
 	}
-Return
+	Return
 }
 
 
@@ -724,7 +848,7 @@ Return
 
 #IfWinActive
 ;+^!q::OpenOrShowAppBasedOnWindowTitle("Poliklinik","C:\panates\Poliklinik.exe")
-+^!q::OpenOrShowAppBasedOnWindowTitleEvdeSağlık("Poliklinik","C:\panates\Poliklinik.exe")
++^!q::OpenOrShowAppBasedOnWindowTitleEvdeSağlık("Poliklinik","C:\Users\EVDESAĞLIK\panates\Poliklinik.exe")
 
 
 #IfWinActive
@@ -872,13 +996,13 @@ return
 
 
 +^!Up::
-ControlFocus, , ahk_exe Spotify.exe,
-ControlSend, , ^{Left}, ahk_exe Spotify.exe
+ControlFocus, ,ahk_exe Spotify.exe,
+ControlSend, ,^{Left}, ahk_exe Spotify.exe
 Return
 
 +^!Down::
-ControlFocus, , ahk_exe Spotify.exe,
-ControlSend, , ^{Right}, ahk_exe Spotify.exe
+ControlFocus, ,ahk_exe Spotify.exe,
+ControlSend, ,^{Right}, ahk_exe Spotify.exe
 Return
 
 /*
@@ -895,8 +1019,8 @@ Return
 */
 
 +^!Space::
-ControlFocus, , ahk_exe Spotify.exe,
-ControlSend, , {Space}, ahk_exe Spotify.exe
+;ControlFocus, ,ahk_exe Spotify.exe,
+ControlSend, ,{Space}, ahk_exe Spotify.exe
 Return
 
 +^!*:: ;; didnt work
@@ -932,12 +1056,13 @@ return
 
 
 
-^+!=:: ;;
+^+!?:: ;;
+Send, Sol.184.93.
 return
 
 
 ^!+-:: ;
-Send, Sol18493..
+Send, Sol18493.
 Sleep, 99
 Send {Enter}
 return
@@ -964,9 +1089,11 @@ içhastalıkları()
 return
 
 ^!+4:: ;;;
+OpenOrShowAppBasedOnExeName("C:\Program Files (x86)\qBittorrent\qbittorrent.exe")
 return
 
 ^!+5:: ;;;
+hastaaltbeziidrar()
 return
 
 
@@ -1022,22 +1149,44 @@ return
 ^!+8:: ;;;
 Send, !+^z
 Sleep, 499
-Run, C:\Users\EVDESAĞLIK\Desktop\ESHS\ESHS 2022.xlsx
+;Run, C:\Users\EVDESAĞLIK\Desktop\ESHS\ESHS 2022.xlsx
+Run, C:\Users\EVDESAĞLIK\Desktop\2023\ESHS 2023.xlsx
 Sleep, 3999
 FormatTime, CurrentDateTime,, dd.MM.yyyy
 Sleep 299
-Run, C:\Users\EVDESAĞLIK\Desktop\ARALIK AYI VERİLERİ 2022\%CurrentDateTime%.docx
-Sleep, 3999
-Click 445, 740
+;Run, C:\Users\EVDESAĞLIK\Desktop\ARALIK AYI VERİLERİ 2022\%CurrentDateTime%.docx
+Run, C:\Users\EVDESAĞLIK\Desktop\2023\OCAK AYI VERİLER 2023\%CurrentDateTime%.docx
+Sleep, 4999
+Click 428, 760
 return
 
 ^!+9:: ;;;
+Loop, 200
+{
+Send, ^c
+Sleep, 999
+Send, !{Tab}
+Sleep, 999
+Send, ^+n
+Sleep, 999
+Send, ^v
+Sleep, 999
+Send, {Enter}
+Sleep, 999
+Send, !{Tab}
+Sleep, 999
+Send, {Down}
+Sleep, 999
+}
+Return
+/*
 Click 475, 527
 Sleep, 499
 Click 181, 178
 Sleep, 599
 Send, !{Tab}
 return
+*/
 
 
 +^!0::OpenOrShowAppBasedOnExeName("C:\Windows\system32\SnippingTool.exe")

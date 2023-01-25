@@ -93,6 +93,14 @@ reçetemilaçf()
 }
 
 
+::.mar::
+tanı("j30.2")
+return
+
+::.fae::
+tanı("D52.9")
+return
+
 
 ^+q:: ; vitamin eksikiği
 tanı("E56.9")
@@ -332,7 +340,18 @@ Sleep 1999
 reçetemilaçf()
 return
 
-^+6::
+^+6:: ;;  tetkik
+Click, 224 81
+Sleep 500
+Click, 469 244
+Sleep 500
+Click, 488 264
+Sleep 1000
+Click, Right
+Send, {Up 2}
+Sleep 500
+Send, {Enter}
+return
 
 return
 
@@ -351,7 +370,8 @@ return
 ^+0::
 Send !s
 Sleep 499
-Click 1473 382
+;Click 1473 382
+Click 1396, 421
 Sleep 499
 return
 
@@ -391,7 +411,7 @@ Sleep 1999
 reçetemilaç()
 return
 
-^+6::
+^+6:: 
 
 return
 
